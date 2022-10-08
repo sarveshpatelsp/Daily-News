@@ -1,62 +1,86 @@
 package com.akkupatel.dailynewsapp;
 
+import java.util.ArrayList;
+
 public class ModelClass {
-    private String author, title, description, url, urlToImage, publishedAt;
-    public ModelClass(String author, String title , String description , String url , String urlToImage , String publishedAt)
-    {
-        this.author = author;
-        this.title = title;
-        this.description = description;
-        this.url = url;
-        this.urlToImage = urlToImage;
-        this.publishedAt = publishedAt;
+
+    private String status , totalResult;
+    private ArrayList<ArticleClass> articles;
+
+    public String getStatus() {
+        return status;
     }
 
-    public String getAuthor() {
-        return author;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public String getTotalResult() {
+        return totalResult;
     }
 
-    public String getTitle() {
-        return title;
+    public void setTotalResult(String totalResult) {
+        this.totalResult = totalResult;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public ArrayList<ArticleClass> getArticles() {
+        return articles;
     }
 
-    public String getDescription() {
-        return description;
+    public void setArticles(ArrayList<ArticleClass> articles) {
+        this.articles = articles;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
-    public String getUrl() {
-        return url;
-    }
+    public class ArticleClass {
+        private String author, title, description, url, urlToImage, publishedAt;
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+        public String getAuthor() {
+            return author;
+        }
 
-    public String getUrlToImage() {
-        return urlToImage;
-    }
+        public void setAuthor(String author) {
+            this.author = author;
+        }
 
-    public void setUrlToImage(String urlToImage) {
-        this.urlToImage = urlToImage;
-    }
+        public String getTitle() {
+            return title;
+        }
 
-    public String getPublishedAt() {
-        return publishedAt;
-    }
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
-    public void setPublishedAt(String publishedAt) {
-        this.publishedAt = publishedAt;
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getUrlToImage() {
+            return urlToImage;
+        }
+
+        public void setUrlToImage(String urlToImage) {
+            this.urlToImage = urlToImage;
+        }
+
+        public String getPublishedAt() {
+            return publishedAt;
+        }
+
+        public void setPublishedAt(String publishedAt) {
+            this.publishedAt = publishedAt;
+        }
     }
 }

@@ -7,9 +7,7 @@ public class ModelClass {
     private String status , totalResult;
     private ArrayList<ArticleClass> articles;
 
-    public String getStatus() {
-        return status;
-    }
+    public String getStatus() { return status; }
 
     public void setStatus(String status) {
         this.status = status;
@@ -32,15 +30,21 @@ public class ModelClass {
     }
 
 
-    public class ArticleClass {
-        private String author, title, description, url, urlToImage, publishedAt;
+    public static class ArticleClass {
+        private String source, title, description, url, urlToImage, publishedAt;
 
-        public String getAuthor() {
-            return author;
+        public ArticleClass(String source, String title, String description) {
+            this.source = source;
+            this.title = title;
+            this.description = description;
         }
 
-        public void setAuthor(String author) {
-            this.author = author;
+        public String getSource() {
+            return source;
+        }
+
+        public void setSource(String source) {
+            this.source = source;
         }
 
         public String getTitle() {

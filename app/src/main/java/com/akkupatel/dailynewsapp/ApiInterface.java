@@ -2,24 +2,11 @@ package com.akkupatel.dailynewsapp;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface ApiInterface {
 
-    String BASE_URL = "https://newsapi.org/v2/";
+    @GET
+    Call<ModelClass> getNews(@Url String url);
 
-    @GET("top-headlines")
-    Call<ModelClass.ArticleClass> getNews(
-            @Query("country") String country,
-            @Query("pageSize") int pagesize,
-            @Query("apiKey") String apikey
-    );
-
-    @GET("top-headlines")
-    Call<ModelClass.ArticleClass> getCategoryNews(
-            @Query("country") String country,
-            @Query("category") String category,
-            @Query("pageSize") int pagesize,
-            @Query("apiKey") String apikey
-    );
 }

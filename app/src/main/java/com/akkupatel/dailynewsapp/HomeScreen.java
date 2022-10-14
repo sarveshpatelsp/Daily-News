@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.Toast;
 import java.util.ArrayList;
 import retrofit2.Call;
@@ -22,6 +23,8 @@ public class HomeScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         recyclerView = findViewById(R.id.recycler_view);
         adapter = new Adapter(list , this);
@@ -49,7 +52,7 @@ public class HomeScreen extends AppCompatActivity {
              for (int i = 0 ; i < articles.size() ; i++)
              {
                  list.add(new ArticleClass(articles.get(i).getSource(), articles.get(i).getTitle() ,
-                         articles.get(i).getDescription(), articles.get(i).getUrlToImage()));
+                         articles.get(i).getDescription(), articles.get(i).getUrlToImage(), articles.get(i).getUrl()));
              }
              adapter.notifyDataSetChanged();
             }

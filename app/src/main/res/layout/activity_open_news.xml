@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpenNews">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarOpen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:gravity="center_horizontal"
+            android:text="Daily News"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="25sp">
+        </TextView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarOpen">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewOpen"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="3dp"
+                android:padding="3dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@android:drawable/ic_menu_crop">
+
+            </ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:id="@+id/titleOpen"
+                android:layout_below="@id/imageViewOpen"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:textColor="@color/black"
+                android:padding="4dp"
+                android:layout_margin="4dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="18sp"
+                android:layout_below="@id/titleOpen"
+                android:padding="4dp"
+                android:layout_margin="4dp"
+                android:id="@+id/descriptionOpen">
+
+            </TextView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

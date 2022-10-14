@@ -5,13 +5,14 @@ import com.google.gson.annotations.SerializedName;
 public class ArticleClass {
     @SerializedName("author")
     private String source;
-    private String title, description, url, urlToImage, publishedAt;
+    private String title, description, url, urlToImage, publishedAt , content;
 
-    public ArticleClass(String source, String title, String description , String urlToImage) {
+    public ArticleClass(String source, String title, String description , String urlToImage , String content) {
         this.source = source;
         this.title = title;
         this.description = description;
         this.urlToImage = urlToImage;
+        this.content = content;
     }
 
     public String getSource() {
@@ -60,5 +61,13 @@ public class ArticleClass {
 
     public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

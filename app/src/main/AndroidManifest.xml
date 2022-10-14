@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SplashScreen">
         <activity
+            android:name=".OpenNews"
+            android:exported="true" />
+        <activity
             android:name=".HomeScreen"
             android:exported="true" />
         <activity

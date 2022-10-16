@@ -9,7 +9,9 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import java.util.ArrayList;
 import retrofit2.Call;
@@ -24,6 +26,7 @@ public class HomeScreen extends AppCompatActivity {
     private Adapter adapter;
     ArrayList<ArticleClass> list = new ArrayList<>();
     BroadcastReceiver broadcastReceiver;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,7 @@ public class HomeScreen extends AppCompatActivity {
         broadcastReceiver = new NetworkBroadcast();
         registerReceiver(broadcastReceiver , new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         recyclerView = findViewById(R.id.recycler_view);
+        progressBar = findViewById(R.id.progressBar);
         adapter = new Adapter(list , this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -49,6 +53,7 @@ public class HomeScreen extends AppCompatActivity {
 
     public void getNews()
     {
+        progressBar.setVisibility(View.VISIBLE);
         String url = "https://newsapi.org/v2/top-headlines?country=in&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=7902bb7da4e34f63be4290f53ea2e6ba";
         String BASE_URL = "https://newsapi.org/";
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
@@ -59,6 +64,7 @@ public class HomeScreen extends AppCompatActivity {
         call.enqueue(new Callback<ModelClass>() {
             @Override
             public void onResponse(Call<ModelClass> call, Response<ModelClass> response) {
+                progressBar.setVisibility(View.GONE);
              ModelClass modelClass = response.body();
              ArrayList<ArticleClass> articles = modelClass.getArticles();
              for (int i = 0 ; i < articles.size() ; i++)

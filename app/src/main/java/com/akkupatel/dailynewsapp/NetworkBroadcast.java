@@ -8,10 +8,12 @@ import android.net.NetworkInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AlertDialog;
 
 public class NetworkBroadcast extends BroadcastReceiver {
+
     @Override
     public void onReceive(Context context, Intent intent) {
         if(!isNetworkConnected(context))
@@ -29,6 +31,7 @@ public class NetworkBroadcast extends BroadcastReceiver {
             buttonTryAgain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     if(isNetworkConnected(context))
                         dialog.dismiss();
                 }
